@@ -52,9 +52,18 @@ DSH 将这两个字段定义为沙箱拒绝后的单次提权重试。同级或�
 ## 兼容性
 
 - Node.js 20 或更高版本
-- `@deepseek-ai/cordis` 4.x
-- `@deepseek-ai/dsh-tools` 0.1.0-rc.7 或兼容版本
-- `@deepseek-ai/dsh-sandbox-policy` 0.1.0-rc.7 或兼容版本
+- `@deepseek-ai/cordis` ~4.0.4
+- `@deepseek-ai/dsh-tools` 0.2.0-rc.2
+- `@deepseek-ai/dsh-sandbox-policy` 0.2.0-rc.2
+
+本分支为本地桌面适配版 `0.2.4-desktop.0`，目标 DSH 为 `0.2.0-rc.2`。构建并打包后安装到桌面 profile，不使用旧 npm 版或版本豁免：
+
+```bash
+pnpm install --frozen-lockfile
+pnpm run check
+pnpm pack
+dsh plugin --profile desktop add ./dsh-gpt-compat-0.2.4-desktop.0.tgz
+```
 
 ## 安装
 

@@ -52,9 +52,18 @@ These checks prevent the plugin from modifying MCP or third-party tools based on
 ## Compatibility
 
 - Node.js 20 or later
-- `@deepseek-ai/cordis` 4.x
-- `@deepseek-ai/dsh-tools` 0.1.0-rc.7 or a compatible release
-- `@deepseek-ai/dsh-sandbox-policy` 0.1.0-rc.7 or a compatible release
+- `@deepseek-ai/cordis` ~4.0.4
+- `@deepseek-ai/dsh-tools` 0.2.0-rc.2
+- `@deepseek-ai/dsh-sandbox-policy` 0.2.0-rc.2
+
+This branch is the local desktop build `0.2.4-desktop.0` for DSH `0.2.0-rc.2`. Build and install the tarball into the desktop profile without a version exemption:
+
+```bash
+pnpm install --frozen-lockfile
+pnpm run check
+pnpm pack
+dsh plugin --profile desktop add ./dsh-gpt-compat-0.2.4-desktop.0.tgz
+```
 
 ## Installation
 
