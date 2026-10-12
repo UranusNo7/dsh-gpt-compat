@@ -41,3 +41,5 @@
 - 修改文件：`.github/workflows/publish.yml`、`README.md`、`README.en.md`、`docs/desktop-compat.md`、`progress.md`。
 - 安装地址：`https://github.com/UranusNo7/dsh-gpt-compat/releases/download/v0.2.4-desktop.0/dsh-gpt-compat-0.2.4-desktop.0.tgz`。
 - 回滚方式：删除该 GitHub prerelease；恢复本次提交即可移除 README 和工作流变更。
+- 发布验证：Release 为 prerelease，附件大小 161760 字节；通过公开 URL 下载后 SHA256 与本地包一致：`C482918C569E0691EFECADAD314B9E8871399DDB66B3C33189C6CD635E3FF24A`。
+- `git diff --check` 和本轮文档/工作流 `prettier --check --end-of-line auto` 通过。GitHub release event 的 workflow run 查询为空，未观察到 npm 发布任务；朋友 macOS 的实际安装尚未验证。
