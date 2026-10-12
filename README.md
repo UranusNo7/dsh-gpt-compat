@@ -67,17 +67,23 @@ dsh plugin --profile desktop add ./dsh-gpt-compat-0.2.4-desktop.0.tgz
 
 ## 安装
 
-将插件安装到目标 DSH profile：
+桌面端 DSH `0.2.0-rc.2` 请安装 [GitHub Release](https://github.com/UranusNo7/dsh-gpt-compat/releases/tag/v0.2.4-desktop.0) 中的预构建 `.tgz`，可将以下地址粘贴到桌面端插件管理器的安装输入框：
 
-```bash
-dsh plugin --profile web add dsh-gpt-compat
+```text
+https://github.com/UranusNo7/dsh-gpt-compat/releases/download/v0.2.4-desktop.0/dsh-gpt-compat-0.2.4-desktop.0.tgz
 ```
 
-这个包声明了 `dsh.bundle.patch`，DSH 会在安装后把它加入 profile 的 bundle 列表。本地开发可从插件目录执行：
+使用 CLI 时：
 
 ```bash
-dsh plugin --profile web add .
+dsh plugin --profile desktop add https://github.com/UranusNo7/dsh-gpt-compat/releases/download/v0.2.4-desktop.0/dsh-gpt-compat-0.2.4-desktop.0.tgz
 ```
+
+也可以下载该文件后，通过插件管理器安装本地 `.tgz`。包中已包含 `dist`，安装时无需从源码构建。
+
+直接使用 GitHub 仓库链接会安装源码，在 pnpm 的构建脚本白名单限制下可能出现 `ERR_PNPM_GIT_DEP_PREPARE_NOT_ALLOWED`。遇到此错误，请改用上述 Release 文件链接。GitHub 自动生成的 `Source code (zip/tar.gz)` 仍是源码包，不是插件安装包。当前桌面适配版未发布到 npm，npm 的 `0.2.3` 不适配此 DSH 版本。
+
+这个包声明了 `dsh.bundle.patch`，DSH 会在安装后把它加入 profile 的 bundle 列表。需要从源码构建时，请使用上面的构建步骤。
 
 ## 配置
 

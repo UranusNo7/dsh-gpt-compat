@@ -67,17 +67,23 @@ dsh plugin --profile desktop add ./dsh-gpt-compat-0.2.4-desktop.0.tgz
 
 ## Installation
 
-Install the plugin into a DSH profile:
+For desktop DSH `0.2.0-rc.2`, install the prebuilt `.tgz` from the [GitHub Release](https://github.com/UranusNo7/dsh-gpt-compat/releases/tag/v0.2.4-desktop.0). Paste this URL into the desktop plugin manager's installation field:
 
-```bash
-dsh plugin --profile web add dsh-gpt-compat
+```text
+https://github.com/UranusNo7/dsh-gpt-compat/releases/download/v0.2.4-desktop.0/dsh-gpt-compat-0.2.4-desktop.0.tgz
 ```
 
-The package declares a `dsh.bundle.patch`, so DSH adds it to the profile's bundle list after installation. For local development, run this from the plugin checkout:
+For CLI installation:
 
 ```bash
-dsh plugin --profile web add .
+dsh plugin --profile desktop add https://github.com/UranusNo7/dsh-gpt-compat/releases/download/v0.2.4-desktop.0/dsh-gpt-compat-0.2.4-desktop.0.tgz
 ```
+
+Alternatively, download the file and install the local `.tgz` through the plugin manager. The package includes `dist` and requires no source build during installation.
+
+A GitHub repository URL installs source code and may fail with `ERR_PNPM_GIT_DEP_PREPARE_NOT_ALLOWED` under pnpm's build-script allowlist. Use the Release asset URL above instead. GitHub's automatically generated `Source code (zip/tar.gz)` archives are source packages, not plugin installation packages. This desktop build is not published to npm; npm version `0.2.3` does not support this DSH version.
+
+The package declares a `dsh.bundle.patch`, so DSH adds it to the profile's bundle list after installation. To build from source, use the steps above.
 
 ## Configuration
 

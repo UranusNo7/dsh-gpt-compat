@@ -8,6 +8,7 @@
 - DSH peer 和测试依赖对齐到 `0.2.0-rc.2`，不申请版本豁免。
 - 现有 `tools/pre-execute`、`tools.get`、`sandboxPolicy.resolve` 接口兼容；未修改权限判断逻辑。
 - 本地 tarball 已通过插件管理器安装，运行时 `include:gpt-compat` 为 `enabled: true`、`fiberPhase: active`。已即时生效，无需重启。
+- 预构建安装包发布在 GitHub Release `v0.2.4-desktop.0`；应使用 Release asset 的 `.tgz` URL，不要使用仓库源码 URL或 GitHub 自动生成的 source archive。
 
 ## 重建与安装
 

@@ -22,3 +22,22 @@
 - 桌面 profile 的 package.json、pnpm-lock.yaml、node_modules 由插件管理器更新，加入 dsh-gpt-compat bundle。
 - 回滚安装：在桌面插件管理器禁用或移除 dsh-gpt-compat。
 - 回滚源码：`git restore -- package.json pnpm-lock.yaml README.md README.en.md`；本轮新增文档可单独移除。恢复源码不会自动卸载已安装 tarball 副本。
+
+## 2026-10-12 - Task: 发布 GitHub 预构建安装包
+
+### What was done
+
+- 修正中英文 README：桌面端安装改为 GitHub Release 的预构建 `.tgz`，并明确说明仓库源码 URL 会触发 pnpm 构建脚本白名单错误。
+- 发布 `v0.2.4-desktop.0` GitHub prerelease，附带已验证的 `dsh-gpt-compat-0.2.4-desktop.0.tgz`。
+- 将 npm 发布工作流限制为正式 release，避免桌面适配 prerelease 误触发 npm 发布。
+
+### Testing
+
+- 重新执行 `pnpm pack` 生成包含最新 README 的预构建包。
+- 使用 `gh release view` 和 Release asset URL 校验发布结果。
+
+### Notes
+
+- 修改文件：`.github/workflows/publish.yml`、`README.md`、`README.en.md`、`docs/desktop-compat.md`、`progress.md`。
+- 安装地址：`https://github.com/UranusNo7/dsh-gpt-compat/releases/download/v0.2.4-desktop.0/dsh-gpt-compat-0.2.4-desktop.0.tgz`。
+- 回滚方式：删除该 GitHub prerelease；恢复本次提交即可移除 README 和工作流变更。
